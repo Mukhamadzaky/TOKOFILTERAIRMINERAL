@@ -33,10 +33,10 @@
 
 @section('content')
 <div class="bg-gray-50 min-h-screen py-8">
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="max-w-8xl mx-auto px-8">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-900">Pesan Masuk</h1>
-            <a href="{{ route('home') }}" class="text-blue-600 hover:text-blue-700">← Kembali ke Website</a>
+            <a href="{{ route('home') }}" class="text-[#3464a3] hover:text-[#274e7c]">← Kembali ke Website</a>
         </div>
 
         @if(session('success'))
@@ -60,7 +60,7 @@
                 </thead>
                 <tbody>
                     @forelse($pesans as $index => $pesan)
-                        <tr class="{{ $pesan->dibaca ? '' : 'bg-blue-50' }}">
+                        <tr class="{{ $pesan->dibaca ? '' : 'bg-[#eaf2ff]' }}">
                             <td>{{ $index + 1 }}</td>
                             <td class="font-medium">{{ $pesan->nama }}</td>
                             <td>{{ $pesan->email }}</td>

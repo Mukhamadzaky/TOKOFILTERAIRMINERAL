@@ -4,150 +4,144 @@
 
 @section('styles')
 <style>
-    .hero-water {
+    .hero-section {
         position: relative;
         overflow: hidden;
-        perspective: 800px;
+        border-radius: 32px;
+        background: linear-gradient(180deg, #f8fbff 0%, #d9e8fc 45%, #dbeeff 100%);
+        box-shadow: 0 30px 80px rgba(15, 67, 122, 0.12);
     }
-    .hero-water::before {
-        content: "";
+    .hero-section::before {
+        content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.18), transparent 38%);
+        background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.85), transparent 22%),
+                    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.65), transparent 18%);
         pointer-events: none;
     }
-    .wave {
+    .hero-inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(360px, 1fr);
+        align-items: center;
+        justify-items: center;
+        gap: 2.5rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 4rem 2.25rem;
+    }
+    .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.75rem;
+    }
+    .hero-copy p {
+        color: #1e3a8a;
+    }
+    .hero-copy h1 {
+        font-size: clamp(3rem, 4vw, 5.5rem);
+        line-height: 1.02;
+    }
+    .hero-copy .hero-subtitle {
+        max-width: 48rem;
+        color: #4b6cb7;
+        font-size: 1.15rem;
+        line-height: 1.9;
+    }
+    .hero-card {
+        position: relative;
+        min-height: 520px;
+        border-radius: 36px;
+        background: linear-gradient(180deg, #ffffff 0%, #dbeeff 100%);
+        border: 1px solid rgba(255,255,255,0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 2rem;
+    }
+    .hero-card::before {
+        content: '';
         position: absolute;
-        left: 0;
-        bottom: -18px;
-        width: 220%;
-        height: 210px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.24) 20%, rgba(255,255,255,0.08) 90%);
-        border-radius: 45%;
-        filter: blur(0.5px);
-        transform: translate3d(0, 0, 0);
-        animation: waveMove 12s linear infinite;
-        will-change: transform;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(255,255,255,0.85), transparent 30%),
+                    radial-gradient(circle at bottom right, rgba(96,165,250,0.18), transparent 30%);
+        pointer-events: none;
     }
-    .wave.wave2 {
-        bottom: -28px;
-        opacity: 0.45;
-        animation-duration: 14s;
-        transform: translate3d(0, 0, 0);
+    .hero-visual {
+        position: relative;
+        width: 100%;
+        max-width: 560px;
+        display: grid;
+        place-items: center;
     }
-    .wave.wave3 {
-        bottom: -38px;
-        opacity: 0.6;
-        animation-duration: 18s;
-        transform: translate3d(0, 0, 0);
+    .hero-image {
+        width: 100%;
+        height: auto;
+        border-radius: 32px;
+        box-shadow: 0 32px 90px rgba(41, 98, 205, 0.16);
+        background: white;
     }
-    .hero-water:hover .wave {
-        animation-duration: 9s;
-    }
-    .hero-water:hover .wave2 {
-        animation-duration: 11s;
-    }
-    .hero-water:hover .wave3 {
-        animation-duration: 13s;
-    }
-    @keyframes waveMove {
-        0% { transform: translate3d(0, 0, 0); }
-        100% { transform: translate3d(-35%, 0, 0); }
-    }
-    .bubble {
-        position: absolute;
-        border-radius: 9999px;
-        background: rgba(255,255,255,0.35);
-        box-shadow: 0 0 18px rgba(255,255,255,0.12);
-        animation: bubbleFloat 6s ease-in-out infinite;
-        will-change: transform, opacity;
-    }
-    .bubble:nth-child(1) { width: 16px; height: 16px; bottom: 40px; left: 18%; animation-duration: 5.5s; }
-    .bubble:nth-child(2) { width: 24px; height: 24px; bottom: 32px; left: 45%; animation-duration: 7s; }
-    .bubble:nth-child(3) { width: 12px; height: 12px; bottom: 22px; left: 72%; animation-duration: 6.5s; }
-    .bubble:nth-child(4) { width: 20px; height: 20px; bottom: 55px; left: 62%; animation-duration: 8s; }
-    @keyframes bubbleFloat {
-        0%, 100% { transform: translateY(0) scale(1); opacity: 0.75; }
-        50% { transform: translateY(-20px) scale(1.05); opacity: 1; }
+    @media (max-width: 900px) {
+        .hero-inner {
+            grid-template-columns: 1fr;
+            padding: 3rem 1.5rem;
+        }
+        .hero-card {
+            min-height: 320px;
+        }
     }
 </style>
 @endsection
 
 @section('content')
-<header class="hero-water bg-gradient-to-b from-blue-700 via-blue-600 to-blue-500 text-white pt-32 pb-24">
-    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-        <p class="uppercase tracking-[0.4em] text-sm text-blue-200 mb-4">Filter Air Sumur & PAM | Garansi 1 Tahun</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">Solusi Air Bersih untuk Rumah dan Usaha</h1>
-        <p class="max-w-3xl mx-auto text-lg text-blue-100 mb-10">Nirmala Filter Air menyediakan sistem filter berkualitas untuk air sumur, PAM, depo air minum, dan kebutuhan industri kecil.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="{{ route('produk') }}" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-full font-bold hover:bg-yellow-300 transition">Lihat Produk</a>
-            <a href="{{ route('kontak') }}" class="bg-white text-blue-700 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition">Hubungi Kami</a>
+<section class="mx-auto max-w-full px-6 md:px-10 py-20">
+    <div class="hero-section">
+        <div class="hero-inner">
+            <div class="hero-copy">
+                <p class="uppercase tracking-[0.4em] text-sm text-[#4f7fc3] mb-4">Filter Air Sumur &amp; PAM | Garansi 1 Tahun</p>
+                <h1 class="font-bold text-slate-900 mb-6">Solusi Air Bersih untuk Rumah dan Usaha</h1>
+                <p class="hero-subtitle text-lg leading-8 mb-10">Nirmala Filter Air menyediakan sistem filter berkualitas untuk air sumur, PAM, depo air minum, dan kebutuhan industri kecil.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{{ route('produk') }}" class="inline-flex items-center justify-center rounded-full bg-[#3464a3] px-8 py-4 text-white font-semibold hover:bg-[#274e7c] transition">Lihat Produk</a>
+                    <a href="{{ route('kontak') }}" class="inline-flex items-center justify-center rounded-full border border-[#cfe0f7] bg-white px-8 py-4 text-[#3464a3] font-semibold hover:bg-[#eaf2ff] transition">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-visual">
+                    <img src="{{ asset('images/produk.png') }}" alt="Produk filter air" class="hero-image" />
+                </div>
+            </div>
         </div>
     </div>
-    <div class="absolute inset-x-0 bottom-0 h-44 overflow-hidden opacity-90">
-        <div class="wave"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-    </div>
-</header>
+</section>
 
-<main class="max-w-6xl mx-auto px-4 py-16 flex-grow">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <a href="{{ route('about') }}" class="block p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition">
-            <h2 class="text-xl font-bold mb-3">Tentang Kami</h2>
-            <p class="text-gray-600">Pelajari profil perusahaan, visi misi, dan pengalaman kami dalam solusi filter air.</p>
+<main class="max-w-6xl mx-auto px-6 lg:px-8 pb-20">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <a href="{{ route('about') }}" class="block p-10 bg-white rounded-[36px] shadow-xl hover:shadow-2xl transition">
+            <h2 class="text-2xl font-bold mb-4">Tentang Kami</h2>
+            <p class="text-slate-600">Pelajari profil perusahaan, visi misi, dan pengalaman kami dalam solusi filter air.</p>
         </a>
-        <a href="{{ route('produk') }}" class="block p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition">
-            <h2 class="text-xl font-bold mb-3">Produk</h2>
-            <p class="text-gray-600">Lihat daftar produk filter air Nirmala yang tersedia untuk berbagai kebutuhan.</p>
+        <a href="{{ route('produk') }}" class="block p-10 bg-white rounded-[36px] shadow-xl hover:shadow-2xl transition">
+            <h2 class="text-2xl font-bold mb-4">Produk</h2>
+            <p class="text-slate-600">Lihat daftar produk filter air Nirmala yang tersedia untuk berbagai kebutuhan.</p>
         </a>
-        <a href="{{ route('keunggulan') }}" class="block p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition">
-            <h2 class="text-xl font-bold mb-3">Keunggulan</h2>
-            <p class="text-gray-600">Ketahui alasan mengapa pelanggan memilih Nirmala Filter Air.</p>
+        <a href="{{ route('keunggulan') }}" class="block p-10 bg-white rounded-[36px] shadow-xl hover:shadow-2xl transition">
+            <h2 class="text-2xl font-bold mb-4">Keunggulan</h2>
+            <p class="text-slate-600">Ketahui alasan mengapa pelanggan memilih Nirmala Filter Air.</p>
         </a>
-        <a href="{{ route('klien') }}" class="block p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition">
-            <h2 class="text-xl font-bold mb-3">Klien</h2>
-            <p class="text-gray-600">Lihat mitra dan klien yang sudah mempercayakan masalah air kepada kami.</p>
+        <a href="{{ route('klien') }}" class="block p-10 bg-white rounded-[36px] shadow-xl hover:shadow-2xl transition">
+            <h2 class="text-2xl font-bold mb-4">Klien</h2>
+            <p class="text-slate-600">Lihat mitra dan klien yang sudah mempercayakan masalah air kepada kami.</p>
         </a>
-        <a href="{{ route('kontak') }}" class="block p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition">
-            <h2 class="text-xl font-bold mb-3">Kontak</h2>
-            <p class="text-gray-600">Segera hubungi kami untuk konsultasi gratis dan pemesanan filter air.</p>
+        <a href="{{ route('kontak') }}" class="block p-10 bg-white rounded-[36px] shadow-xl hover:shadow-2xl transition">
+            <h2 class="text-2xl font-bold mb-4">Kontak</h2>
+            <p class="text-slate-600">Segera hubungi kami untuk konsultasi gratis dan pemesanan filter air.</p>
         </a>
     </div>
 </main>
 @endsection
 
 @section('scripts')
-<script>
-    const heroWater = document.querySelector('.hero-water');
-    const waves = heroWater.querySelectorAll('.wave');
-    const bubbles = heroWater.querySelectorAll('.bubble');
-
-    function updateWaterMotion(x, y) {
-        waves.forEach((wave, index) => {
-            const speed = 8 + index * 5;
-            wave.style.transform = `translate3d(${x * speed}px, 0, 0)`;
-        });
-        bubbles.forEach((bubble, index) => {
-            const drift = 6 + index * 2;
-            bubble.style.transform = `translate3d(${x * drift}px, ${y * 10}px, 0)`;
-        });
-    }
-
-    heroWater.addEventListener('mousemove', event => {
-        const rect = heroWater.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-        const y = ((event.clientY - rect.top) / rect.height - 0.5);
-        updateWaterMotion(x, y);
-    });
-
-    heroWater.addEventListener('mouseleave', () => {
-        waves.forEach(wave => wave.style.transform = 'translate3d(0, 0, 0)');
-        bubbles.forEach(bubble => bubble.style.transform = 'translate3d(0, 0, 0)');
-    });
-</script>
 @endsection
