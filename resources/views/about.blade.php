@@ -12,32 +12,35 @@
 </header>
 
 <main class="max-w-8xl mx-auto px-8 py-20">
-    <section class="grid gap-10 lg:grid-cols-2 items-center">
+    <section class="grid gap-10 lg:grid-cols-2 items-center bg-[#eff6ff] rounded-[40px] p-10 shadow-xl">
         <div class="space-y-6">
-            <h2 class="text-3xl font-bold text-gray-900">CV. Nirmala Sumber Asri</h2>
-            <p class="text-gray-600">CV. Nirmala Sumber Asri atau Nirmala Filter Air adalah perusahaan yang bergerak di bidang water treatment, meliputi penjernihan air, depo air minum, reverse osmosis, dan demineralisasi.</p>
-            <p class="text-gray-600">Kami telah berpengalaman lebih dari 10 tahun membantu pelanggan menyelesaikan masalah air di berbagai sektor, mulai dari rumah tangga, industri, depot air minum, hingga perusahaan berskala besar.</p>
-            <p class="text-gray-600">Teknologi media filter yang kami gunakan sangat cocok untuk menangani beragam masalah air di seluruh Indonesia.</p>
+            <span class="inline-flex rounded-full bg-[#dcebff] px-4 py-2 text-sm font-semibold text-[#1f4b8b]">Tentang Kami</span>
+            <h2 class="text-4xl font-bold text-gray-900">CV. Nirmala Sumber Asri</h2>
+            <p class="text-gray-600">CV. Nirmala Sumber Asri adalah perusahaan water treatment berpengalaman lebih dari 10 tahun, menyediakan solusi filter air sumur, PAM, depo air minum, reverse osmosis, dan demineralisasi. Kami menghadirkan layanan lengkap yang membantu pelanggan mendapatkan air bersih, aman, dan terjangkau di rumah, usaha, dan depot air minum.</p>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <div class="rounded-3xl bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-lg text-gray-900 mb-2">Pengalaman</h3>
+                    <p class="text-gray-600">Lebih dari 10 tahun menangani berbagai masalah air dengan solusi yang dapat diandalkan.</p>
+                </div>
+                <div class="rounded-3xl bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-lg text-gray-900 mb-2">Solusi Tepat</h3>
+                    <p class="text-gray-600">Dari komponen filter sampai paket jadi, semua disiapkan agar pemasangan lebih cepat dan mudah.</p>
+                </div>
+            </div>
         </div>
-        <div class="rounded-3xl overflow-hidden shadow-xl">
+        <div class="relative overflow-hidden rounded-[36px] shadow-2xl bg-white">
             <img src="/images/produk.png" alt="Kantor Nirmala Filter Air" class="w-full h-full object-cover">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/85 to-transparent p-6">
+                <p class="text-sm uppercase tracking-[0.24em] text-slate-300">Nirmala Filter Air</p>
+                <h3 class="text-2xl font-semibold text-white">Praktis, Profesional, Terpercaya</h3>
+            </div>
         </div>
     </section>
 
     <section class="mt-10 bg-[#eaf2ff] rounded-3xl p-10">
-        <div class="grid gap-8 lg:grid-cols-3">
-            <div class="space-y-3">
-                <h3 class="text-xl font-bold text-gray-900">Visi</h3>
-                <p class="text-gray-600">Menjadi solusi filter air terpercaya yang menghadirkan air bersih dan sehat untuk seluruh keluarga Indonesia.</p>
-            </div>
-            <div class="space-y-3">
-                <h3 class="text-xl font-bold text-gray-900">Misi</h3>
-                <p class="text-gray-600">Memberikan layanan pemasangan filter air dengan kualitas terbaik, teknologi canggih, dan layanan purna jual responsif.</p>
-            </div>
-            <div class="space-y-3">
-                <h3 class="text-xl font-bold text-gray-900">Nilai Kami</h3>
-                <p class="text-gray-600">Kejujuran, profesionalisme, dan fokus pada kualitas air yang aman dan halal.</p>
-            </div>
+        <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-gray-900">Visi & Misi</h3>
+            <p class="text-gray-600">Visi kami adalah menjadi solusi filter air terpercaya yang menghadirkan air bersih dan sehat bagi seluruh keluarga Indonesia. Misi kami adalah menyediakan pemasangan filter air berkualitas dengan teknologi canggih, layanan purna jual responsif, serta menjaga integritas melalui kejujuran, profesionalisme, dan fokus pada kualitas air yang aman dan halal.</p>
         </div>
     </section>
 

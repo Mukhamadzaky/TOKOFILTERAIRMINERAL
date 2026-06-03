@@ -139,9 +139,56 @@
             <h2 class="text-2xl font-bold mb-4">Kontak</h2>
             <p class="text-slate-600">Segera hubungi kami untuk konsultasi gratis dan pemesanan filter air.</p>
         </a>
+        <a href="{{ route('kontak') }}" class="block p-10 bg-white rounded-[36px] shadow-xl hover:shadow-2xl transition">
+            <h2 class="text-2xl font-bold mb-4">Rating</h2>
+            <p class="text-slate-600 mb-5">Pilih berapa bintang yang menurut Anda cocok untuk website dan layanan kami.</p>
+            <div id="rating-stars" class="flex items-center gap-2 mb-4 text-3xl">
+                <button type="button" class="rating-star text-slate-300 transition hover:text-yellow-500" data-value="1" aria-label="1 bintang">★</button>
+                <button type="button" class="rating-star text-slate-300 transition hover:text-yellow-500" data-value="2" aria-label="2 bintang">★</button>
+                <button type="button" class="rating-star text-slate-300 transition hover:text-yellow-500" data-value="3" aria-label="3 bintang">★</button>
+                <button type="button" class="rating-star text-slate-300 transition hover:text-yellow-500" data-value="4" aria-label="4 bintang">★</button>
+                <button type="button" class="rating-star text-slate-300 transition hover:text-yellow-500" data-value="5" aria-label="5 bintang">★</button>
+            </div>
+            <p class="text-slate-600">Klik bintang untuk memilih nilai Anda.</p>
+        </a>
     </div>
 </main>
 @endsection
 
 @section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const stars = document.querySelectorAll('#rating-stars .rating-star');
+        let selectedRating = 4;
+
+        function updateStars(value) {
+            stars.forEach((star) => {
+                const starValue = Number(star.dataset.value);
+                if (starValue <= value) {
+                    star.classList.remove('text-slate-300');
+                    star.classList.add('text-yellow-500');
+                } else {
+                    star.classList.remove('text-yellow-500');
+                    star.classList.add('text-slate-300');
+                }
+            });
+        }
+
+        stars.forEach((star) => {
+            star.addEventListener('click', function () {
+                selectedRating = Number(this.dataset.value);
+                updateStars(selectedRating);
+            });
+            star.addEventListener('mouseover', function () {
+                updateStars(Number(this.dataset.value));
+            });
+        });
+
+        document.getElementById('rating-stars').addEventListener('mouseout', function () {
+            updateStars(selectedRating);
+        });
+
+        updateStars(selectedRating);
+    });
+</script>
 @endsection

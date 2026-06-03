@@ -83,7 +83,7 @@
         }
         .nav-inner {
             width: 100%;
-            margin: 0 auto;
+             margin: 0 auto;
             padding: 0 clamp(1rem, 4vw, 4rem);
             display: flex;
             flex-wrap: wrap;
